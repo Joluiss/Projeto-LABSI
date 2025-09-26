@@ -7,15 +7,6 @@
 volatile unsigned char;
 volatile unsigned int;
 
-typedef struct USARTRX
-{
-	char receiver_buffer;
-	unsigned char status;
-	unsigned char receive: 1;
-	unsigned char error: 1;
-	
-}USARTRX_st;
-
 void init(void) {
 
 	DDRB = 0b00000101; // Entrada PB1, PB3, PB4, PB5, PB6, PB7
@@ -43,4 +34,5 @@ int main(void) {
 		
 	}
 }
+
 
