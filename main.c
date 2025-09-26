@@ -1,24 +1,37 @@
+#define F_CPU 16000000UL
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include <stdio.h>
+#include <stdint.h>
 
+volatile unsigned char;
+volatile unsigned int;
 
-volatile unsigned char invert_direction = 0;
-volatile unsigned int ms_counter_250 = 0;
+typedef struct USARTRX
+{
+	char receiver_buffer;
+	unsigned char status;
+	unsigned char receive: 1;
+	unsigned char error: 1;
+	
+}USARTRX_st;
 
 void init(void) {
 
-	DDRB = 0b11100000; // PB5, PB6 e PB7 para motor
+	DDRB = 0b11111010; // Entrada PB1, PB3, PB4, PB5, PB6, PB7
 	PORTB = 0b00111110; // Inicializa PORTB
 
-	DDRC = 0xFF; // Displays conectados a PORTC
-	PORTC = 0xFF; // Inicializa PORTC
+	DDRC = ; // Displays conectados a PORTC
+	PORTC = ; // Inicializa PORTC
 
-	// Configura Timer0 para 5 ms (CTC mode)
-	OCR0 = 77; // Valor calculado para 5 ms (prescaler de 1024)
-	TCCR0 = 0b00001111; // CTC mode, prescaler 1024
-	TIMSK |= (1 << OCIE0); // Habilita interrup��o do Timer0
+	
+	TCCR0A |= (1 << WGM00); // PWM mode, phase correct
+	TIMSK |= (1 << OCIE0); // Habilita interrupção do Timer0
 
-	sei(); // Habilita interrup��es globais
+	OCR1 = 0;
+	TCCR1B |= (1 << WGM12)|(1 << CS12); //CTC mode, prescaler 256
+
+	sei(); // Habilita interrupções globais
 }
 
 
