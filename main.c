@@ -18,8 +18,8 @@ typedef struct USARTRX
 
 void init(void) {
 
-	DDRB = 0b11111010; // Entrada PB1, PB3, PB4, PB5, PB6, PB7
-	PORTB = 0b00111110; // Inicializa PORTB
+	DDRB = 0b00000101; // Entrada PB1, PB3, PB4, PB5, PB6, PB7
+	PORTB = ; // Inicializa PORTB
 
 	DDRC = ; // Displays conectados a PORTC
 	PORTC = ; // Inicializa PORTC
@@ -43,3 +43,4 @@ int main(void) {
 		
 	}
 }
+
