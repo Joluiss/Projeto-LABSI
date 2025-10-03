@@ -30,7 +30,7 @@ void init(void) {
 	TCCR0A = (1 << WGM01); // CTC mode
 	TCCR0B = (1 << CS01)|(1 << CS00); //Prescaler 64
 	OCR0A = 249; // 1ms=((OCR0A+1)*64)/16MHz,
-	TIMSK |= (1 << OCIE0A); // Habilita interrupção do Timer0
+	TIMSK0 |= (1 << OCIE0A); // Habilita interrupção do Timer0
 
 	ADCSRA = (1 << ADEN)|(1 << ADPS2)|(1 << ADPS1)|(1 << ADPS0); //Ativar com prescaler de 128 (Fadc=125KHz)
 	ADMUX = (1 << REFS1)|(1 << ADLAR); // Resultado ajuste à esquerda
@@ -47,3 +47,4 @@ int main(void) {
 		
 	}
 }
+
