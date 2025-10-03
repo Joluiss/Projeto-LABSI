@@ -1,6 +1,6 @@
 TARGET = teste
 
-SRCS = init.c test.c
+SRCS = init.c main.c
 
 OBJS = $(SRCS:.c=.o)
 
