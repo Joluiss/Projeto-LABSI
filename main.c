@@ -3,6 +3,7 @@
 #include <avr/interrupt.h>
 #include <stdio.h>
 #include <stdint.h>
+#include <util/delay.h>
 
 //Contador de milissegundos atualizado por interrupcao
 volatile uint16_t ms_count = 0;
@@ -69,4 +70,5 @@ int main(void) {
         _delay_ms(5);   
     }
 }
+
 
