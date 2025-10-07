@@ -27,30 +27,7 @@ int main(void) {
             last_ms = ms_count;
             led_1hz();          // Alterna o estado do LED2
         }
-            
-
-/*
-        void Pisca(){
-            if(flag1ms==1)
-            {
-                flag1ms=0;
-                ms_count++;
-                if(ms_count==500)
-                {
-                    PORTD ^=(1<<PD1);
-                }
-                if(ms_count==1000)
-                {
-                    ms_count=0;
-                    PORTD ^=(1<<PD1);
-                }
-            }
-
-        }
-            */
-        
-
-
+                 
         _delay_ms(5);   
     }
 }
